@@ -16,6 +16,10 @@ Abra o `index.html` no navegador. Sem Supabase configurado ele entra em **modo t
 
 ## 2. Criar o banco no Supabase
 
+> **Já feito neste repositório:** projeto `escala-turismo` (São Paulo) criado, `setup.sql` aplicado e `config.js` preenchido. Falta só o passo 3 (PIN da coordenação).
+
+> **Avisos no painel do Supabase (Advisors):** "security definer executável por anon" nas 5 funções do site e "RLS sem policy" em `app_config`, `escala_pins` e `pin_tentativas` são intencionais: as funções conferem o PIN antes de gravar, e essas 3 tabelas ficam fechadas para o público de propósito.
+
 1. Entre em <https://supabase.com> com a conta do GitHub e crie um projeto (região **South America — São Paulo**).
 2. No menu lateral, abra **SQL Editor → New query**, cole todo o arquivo `supabase/setup.sql` e clique em **Run**.
 3. Ainda no SQL Editor, numa query nova, defina o PIN da coordenação (6 a 12 números):

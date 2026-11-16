@@ -414,6 +414,15 @@ end $$;
 --  5. Quem pode chamar o quê
 -- ---------------------------------------------------------------------
 
+alter function public._faixa(date, time, time)                     set search_path = public;
+alter function public._agora_local()                               set search_path = public;
+alter function public._erro(text)                                  set search_path = public;
+alter function public._limpa_nome(text)                            set search_path = public;
+alter function public._msg_pin(text)                               set search_path = public;
+alter function public._tem_vaga(date, text, time, time, int, uuid) set search_path = public;
+alter function public._conflito(text, date, time, time, uuid)      set search_path = public;
+alter function public._checa_checkin(uuid, text)                   set search_path = public;
+
 revoke all on function public._faixa(date, time, time)                         from public, anon, authenticated;
 revoke all on function public._agora_local()                                   from public, anon, authenticated;
 revoke all on function public._erro(text)                                      from public, anon, authenticated;

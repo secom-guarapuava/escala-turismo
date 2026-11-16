@@ -10,8 +10,8 @@ window.ESCALA_CONFIG = {
   /* Supabase (Project Settings > API).
      Enquanto estiver vazio, o site abre em MODO TESTE: os dados ficam só
      no navegador de quem está usando. Preencha para ficar online. */
-  supabaseUrl: "",   // ex.: "https://abcdefgh.supabase.co"
-  supabaseKey: "",   // chave "publishable" ou "anon public" (nunca a secret/service_role)
+  supabaseUrl: "https://ynpcvauswsfavogkrmwj.supabase.co",
+  supabaseKey: "sb_publishable_TP02xk6cXnWu7spL8BLIuQ_3qLDAIt4",   // chave publishable (pública por natureza; nunca use a secret)
 
   /* Período da escala (AAAA-MM-DD) */
   periodo: { inicio: "2026-11-20", fim: "2026-12-31" },
