@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Escala do Turismo</title>
+  <meta name="description" content="Escala de trabalho do Carrossel e do Chapéu Mexicano: escolha seu horário e registre presença.">
+  <meta name="theme-color" content="#12324A">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312324A'/%3E%3Crect x='14' y='18' width='36' height='32' rx='5' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M14 28h36M24 12v10M40 12v10' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='39' r='4' fill='%23F59E0B'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo-in">
+      <div class="topo-txt">
+        <h1 id="titulo">Escala do Turismo</h1>
+        <p id="subtitulo" class="topo-sub"></p>
+      </div>
+      <span id="conexao" class="conexao" role="status" aria-live="polite"></span>
+    </div>
+    <nav class="abas" role="tablist" aria-label="Seções">
+      <button type="button" role="tab" id="tab-escala" data-aba="escala" aria-controls="aba-escala" aria-selected="true">Escala</button>
+      <button type="button" role="tab" id="tab-geral" data-aba="geral" aria-controls="aba-geral" aria-selected="false">Visão geral</button>
+      <button type="button" role="tab" id="tab-mural" data-aba="mural" aria-controls="aba-mural" aria-selected="false">No local <span id="mural-cont" class="aba-cont"></span></button>
+    </nav>
+  </header>
+
+  <div id="aviso" class="aviso" hidden></div>
+
+  <main class="conteudo">
+
+    <!-- ESCALA DO DIA -->
+    <section id="aba-escala" class="aba" role="tabpanel" aria-labelledby="tab-escala">
+      <div class="dias-wrap">
+        <button type="button" class="dias-seta" data-rolar="-1" aria-label="Dias anteriores">‹</button>
+        <div id="dias" class="dias" aria-label="Escolha o dia"></div>
+        <button type="button" class="dias-seta" data-rolar="1" aria-label="Próximos dias">›</button>
+      </div>
+      <div id="meus" class="meus" hidden></div>
+      <div id="dia-cab" class="dia-cab"></div>
+      <div id="locais" class="locais"></div>
+      <p class="legenda">
+        <span class="chip chip-presente">No local</span> presença registrada com foto ·
+        <span class="chip chip-aguardando">Aguardando</span> turno aberto, sem registro ·
+        <span class="chip chip-faltou">Sem registro</span> turno acabou sem registro
+      </p>
+    </section>
+
+    <!-- VISÃO GERAL -->
+    <section id="aba-geral" class="aba" role="tabpanel" aria-labelledby="tab-geral" hidden>
+      <div class="geral-barra">
+        <label class="busca">
+          <span class="sr">Buscar pessoa</span>
+          <input id="busca" type="search" placeholder="Buscar pessoa…" autocomplete="off">
+        </label>
+        <button type="button" class="btn btn-sec" id="btn-imprimir">Imprimir</button>
+      </div>
+      <div id="geral-resumo" class="geral-resumo"></div>
+      <div class="tabela-wrap"><table id="tabela" class="tabela"></table></div>
+    </section>
+
+    <!-- MURAL PÚBLICO -->
+    <section id="aba-mural" class="aba" role="tabpanel" aria-labelledby="tab-mural" hidden>
+      <p class="mural-intro">Registros de presença enviados pela equipe, com foto e horário do servidor.</p>
+      <div id="mural-filtros" class="filtros" role="group" aria-label="Filtrar por local"></div>
+      <div id="mural" class="mural"></div>
+    </section>
+
+  </main>
+
+  <dialog id="modal" class="modal" aria-labelledby="modal-titulo">
+    <div id="modal-corpo"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
